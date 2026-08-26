@@ -1,25 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+/* SVARA style reminder: editorial split-screen compositions, calm clinical copy, documentary imagery, Tidal Ink and terracotta accents. */
+import { Link } from "wouter";
+import { ArrowDown, ArrowUpRight, Clock3, Leaf, MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
-export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+const fade = { initial: { opacity: 0, y: 18 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-80px" }, transition: { duration: .7 } };
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
-    </div>
-  );
-}
+export default function Home() { return <div className="bg-[#f6f2ea]">
+  <section className="grain relative flex min-h-[92vh] items-end overflow-hidden bg-[#123c43] text-[#f6f2ea]"><img src="/manus-storage/svara-hero_cd5bcc98.png" alt="Quiet SVARA treatment room" className="absolute inset-0 h-full w-full object-cover object-center opacity-75" /><div className="absolute inset-0 bg-gradient-to-r from-[#123c43]/90 via-[#123c43]/45 to-transparent" /><div className="relative z-10 mx-auto grid w-full max-w-[1440px] gap-12 px-6 pb-16 pt-36 lg:grid-cols-[1fr_1.2fr] lg:px-12 lg:pb-24"><div className="self-end"><p className="mb-5 flex items-center gap-3 text-[10px] uppercase tracking-[.25em] text-[#c9ded2]"><span className="h-px w-12 bg-[#c97861]" />Since 2014 · South Jakarta</p><h1 className="max-w-xl font-display text-[clamp(4rem,8vw,8.5rem)] leading-[.82] tracking-[-.045em]">Come back<br/><em>to yourself.</em></h1></div><div className="flex items-end justify-between gap-6 lg:pb-1"><div className="max-w-xs border-l border-[#a8c3b5]/50 pl-5 text-sm leading-relaxed text-[#dce8df]">Evidence-led bodywork, breath rituals, and skin therapies for people who need a place to land.</div><div className="hidden h-24 w-24 items-center justify-center rounded-full border border-[#dce8df]/50 sm:flex"><ArrowDown size={20} /></div></div></div></section>
+  <section className="mx-auto grid max-w-[1440px] gap-14 px-6 py-24 lg:grid-cols-[.55fr_1fr] lg:px-12 lg:py-36"><div className="lg:sticky lg:top-32 lg:h-fit"><p className="chapter mb-6 text-[#c97861]">01 / The invitation</p><h2 className="max-w-md font-display text-5xl leading-[.92] tracking-[-.025em] lg:text-7xl">Care that gives your nervous system somewhere to land.</h2><Link href="/about" className="mt-10 inline-flex items-center gap-3 border-b border-[#123c43] pb-2 text-[10px] font-bold uppercase tracking-[.2em]">Meet the house <ArrowUpRight size={15} /></Link></div><div className="grid gap-8 sm:grid-cols-2"><motion.div {...fade} className="sm:mt-20"><div className="image-wrap mb-5 aspect-[3/4]"><img src="/manus-storage/svara-practitioner_503d0529.png" alt="SVARA practitioner preparing a ritual" className="h-full w-full object-cover" /></div><p className="text-sm leading-relaxed text-[#4a5d60]">We do not rush the body into a better version of itself. We listen first, then work with what is here.</p></motion.div><motion.div {...fade} transition={{...fade.transition, delay:.12}}><div className="image-wrap mb-5 aspect-[3/4]"><img src="/manus-storage/svara-ritual_efd2ce04.png" alt="Botanical steam ritual" className="h-full w-full object-cover" /></div><p className="text-sm leading-relaxed text-[#4a5d60]">Each visit is built around a simple question: what would feel supportive today?</p></motion.div></div></section>
+  <section className="bg-[#e5eee7] px-6 py-24 lg:px-12 lg:py-32"><div className="mx-auto max-w-[1440px]"><div className="mb-16 flex items-end justify-between gap-6"><div><p className="chapter mb-5 text-[#c97861]">02 / Choose your pace</p><h2 className="font-display text-5xl leading-none lg:text-7xl">A practice, not a package.</h2></div><Link href="/treatments" className="hidden items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] sm:flex">All treatments <MoveRight size={17} /></Link></div><div className="border-t border-[#123c43]/20">{[["01","The Unwind","A slow, full-body reset for the overstimulated.","75 min"],["02","Skin / Soil","Botanical facial work for a brighter, calmer surface.","60 min"],["03","Breath Room","Guided breathwork with grounded body release.","45 min"]].map(([n,t,d,time])=><Link href="/treatments" key={n} className="group grid grid-cols-[48px_1fr_auto] items-center gap-5 border-b border-[#123c43]/20 py-7 transition-colors hover:bg-[#f6f2ea]/50 md:grid-cols-[72px_1fr_1.2fr_auto]"><span className="font-display text-3xl text-[#c97861]">{n}</span><span className="font-display text-3xl lg:text-4xl">{t}</span><span className="hidden text-sm text-[#4a5d60] md:block">{d}</span><span className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.18em]">{time}<ArrowUpRight size={15} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></span></Link>)}</div></div></section>
+  <section className="bg-[#123c43] px-6 py-24 text-[#f6f2ea] lg:px-12 lg:py-32"><div className="mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-[1fr_.8fr]"><div><p className="chapter mb-6 text-[#a8c3b5]">03 / Your first visit</p><h2 className="max-w-xl font-display text-5xl leading-[.9] lg:text-7xl">See the room, meet the practitioner, choose your pace.</h2><Link href="/contact" className="mt-10 inline-flex items-center gap-3 bg-[#c97861] px-5 py-4 text-[10px] font-bold uppercase tracking-[.2em] text-white hover:bg-[#e18e76]">Book a first visit <ArrowUpRight size={15} /></Link></div><div className="grid grid-cols-2 gap-3"><div className="image-wrap mt-16 aspect-[3/4]"><img src="/manus-storage/svara-materials_4dd8ba47.png" alt="SVARA materials" className="h-full w-full object-cover" /></div><div className="flex flex-col justify-end gap-6 pb-2 text-[#dce8df]"><div className="border-l border-[#a8c3b5]/50 pl-4"><Clock3 size={17} className="mb-3 text-[#c97861]" /><p className="text-sm leading-relaxed">Arrive 15 minutes early. Leave the rest at the door.</p></div><div className="border-l border-[#a8c3b5]/50 pl-4"><Leaf size={17} className="mb-3 text-[#c97861]" /><p className="text-sm leading-relaxed">No memberships. No performance goals. Just attention.</p></div></div></div></div></section>
+</div> }
