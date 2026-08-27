@@ -20,7 +20,7 @@ const links = [
 ] as const;
 
 function Mark({ small = false }: { small?: boolean }) {
-  return <img src="https://raw.content-delivery.centrova.id/github-assets/svara/mark.webp" alt="SVARA mark" className={small ? "h-7 w-7" : "h-10 w-10"} />;
+  return <img src="https://raw.content-delivery.centrova.id/Centrova-ID/svara-wellness/main/github-assets/svara/mark.webp" alt="SVARA mark" className={small ? "h-7 w-7" : "h-10 w-10"} />;
 }
 
 function Header() {
